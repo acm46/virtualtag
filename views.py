@@ -1,7 +1,7 @@
 from flask import request
 from flask.ext.mongoengine import MongoEngine
-from VirtualTag.models import Tag
-from VirtualTag import app
+from models import Tag
+from runapp import app
 import json
 
 @app.route('/task', methods=['GET','POST'])
