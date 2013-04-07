@@ -1,24 +1,27 @@
 from flask import Flask, request, url_for
 from flask.ext.mongoengine import MongoEngine
+from mongoengine import *
 import os, datetime, json
 
 app = Flask(__name__)
 app.debug = True
-app.config["MONGODB_SETTINGS"] = {'DB':"virtual_tag"}
-app.config["SECRET_KEY"] = "hackathon2013"
+# app.config["MONGODB_SETTINGS"] = {'DB':"virtual_tag"}
+# app.config["SECRET_KEY"] = "hackathon2013"
 
-db = MongoEngine(app)
+connect('app14643328', username='animohan', password='hello123', host='alex.mongohq.com',port=10091)
+
+# db = MongoEngine(app)
 
 # import views, models
 
-class Tag(db.Document):
-	created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
-	modified_at = db.DateTimeField(default=datetime.datetime.now, required=True)
-	qr_id = db.StringField(required=True)
-	message = db.StringField(required=True)
-	location_x = db.FloatField(required=True)
-	location_y = db.FloatField(required=True)
-	direction = db.FloatField(required=True)
+class Tag(Document):
+	created_at = DateTimeField(default=datetime.datetime.now, required=True)
+	modified_at = DateTimeField(default=datetime.datetime.now, required=True)
+	qr_id = StringField(required=True)
+	message = StringField(required=True)
+	location_x = FloatField(required=True)
+	location_y = FloatField(required=True)
+	direction = FloatField(required=True)
 
 	def to_hash(self):
 		ret_hash = {
