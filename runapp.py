@@ -44,7 +44,7 @@ class Tag(Document):
 		'ordering': ['-created_at']
 	}
 
-@app.route('/task', methods=['GET','POST', 'DELETE'])
+@app.route('/task')
 def task():
 	if request.method == 'POST':
 		tag = Tag()
