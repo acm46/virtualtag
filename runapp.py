@@ -74,7 +74,7 @@ def task():
 
 @app.route('/intersect',methods=['POST'])
 def intersect():
-	if request.methods == 'POST':
+	if request.method == 'POST':
 		ref_x1 = float(request.form.get('location_x'))
 		ref_y1 = float(request.form.get('location_y'))
 		theta1 = float(request.form.get('direction'))
