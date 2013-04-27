@@ -23,7 +23,7 @@ class Tag(Document):
 	location_y = FloatField(required=True)
 	init_direction = FloatField(required=True)
 	direction = FloatField(required=True)
-	features = db.StringField()
+	features = StringField()
 
 	def to_hash(self):
 		ret_hash = {
