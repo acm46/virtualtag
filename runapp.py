@@ -61,9 +61,8 @@ def task():
 		"Content-Type": "application/json"}
 	elif request.method == 'DELETE':
 		Tag.drop_collection()
-		taghashes = [tag.to_hash() for tag in Tag.objects.all()]
 		
-		return json.dumps(taghashes), 200, {
+		return json.dumps("All deleted"), 200, {
 		"Content-Type": "application/json"}
 
 	else:
