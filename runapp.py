@@ -72,9 +72,9 @@ def task():
 		return json.dumps(taghashes), 200, {
 		"Content-Type": "application/json"}
 
-@app.route('/intersect',methods=['POST'])
+@app.route('/intersect',methods=['GET'])
 def intersect():
-	if request.method == 'POST':
+	if request.method == 'GET':
 		ref_x1 = float(request.form.get('location_x'))
 		ref_y1 = float(request.form.get('location_y'))
 		theta1 = float(request.form.get('direction'))
