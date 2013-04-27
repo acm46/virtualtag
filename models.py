@@ -10,6 +10,7 @@ class Tag(db.Document):
 	location_x = db.FloatField(required=True)
 	location_y = db.FloatField(required=True)
 	direction = db.FloatField(required=True)
+	features = db.StringField()
 
 	def to_hash(self):
 		ret_hash = {
@@ -19,7 +20,8 @@ class Tag(db.Document):
 			"message":self.message,
 			"location_x":self.location_x,
 			"location_y":self.location_y,
-			"direction":self.direction
+			"direction":self.direction,
+			"features":self.features
 		}
 		return ret_hash
 

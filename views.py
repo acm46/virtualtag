@@ -13,6 +13,7 @@ def task():
 		tag.location_y = float(request.form.get('location_y'))
 		tag.direction = float(request.form.get('direction'))
 		tag.message = request.form.get('message')
+		tag.features = request.form.get('features')
 		tag.save()
 
 		return json.dumps(tag.to_hash()), 200, {
@@ -23,3 +24,25 @@ def task():
 
 		return json.dumps(taghashes), 200, {
 		"Content-Type": "application/json"}
+
+@app.route('/intersect',methods=['POST'])
+def intersect():
+	if request.methods == 'POST':
+		x1 = float(request.form.get('location_x'))
+		y1 = float(request.form.get('location_y'))
+		theta1 = float(request.form.get('direction'))
+		
+
+
+		tag = Tag.objects.all()[0]
+		x2 =  tag.location_x
+		y2 = tag.location_y
+		theta2 = tag.direction
+
+
+
+
+
+
+
+
