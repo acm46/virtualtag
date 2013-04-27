@@ -85,8 +85,8 @@ def intersect():
 		theta2 = tag.direction
 		offset = tag.init_direction
 
-		theta1 = theta1 - offset
-		theta2 = theta2 - offset
+		theta1 = (theta1 - offset)/360*2*math.pi
+		theta2 = (theta2 - offset)/360*2*math.pi
 
 
 		if (math.cos(theta1) > 0 and math.sin(theta1) > 0):
