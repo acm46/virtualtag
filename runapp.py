@@ -88,11 +88,27 @@ def intersect():
 		theta1 = theta1 - offset
 		theta2 = theta2 - offset
 
-		ref_x2 = 30*math.cos(theta1) + ref_x1
-		ref_y2 = 30*math.sin(theta1) + ref_y1
-		cand_x2 = 30*math.cos(theta2) + cand_x1
-		cand_y2 = 30*math.sin(theta2) + cand_y1
 
+		if (math.cos(theta1) > 0 and math.sin(theta1) > 0):
+			ref_x2 = -30*math.cos(theta1) + ref_x1
+			ref_y2 = -30*math.sin(theta1) + ref_y1
+		elif (math.cos(theta1) < 0 and math.sin(theta1) < 0):		
+			ref_x2 = -30*math.cos(theta1) + ref_x1
+			ref_y2 = -30*math.sin(theta1) + ref_y1
+		else:
+			ref_x2 = 30*math.cos(theta1) + ref_x1
+			ref_y2 = 30*math.sin(theta1) + ref_y1
+
+		if (math.cos(theta2) > 0 and math.sin(theta2) > 0):
+			cand_x2 = -30*math.cos(theta2) + cand_x1
+			cand_y2 = -30*math.sin(theta2) + cand_y1
+		elif (math.cos(theta2) < 0 and math.sin(theta2) < 0):		
+			cand_x2 = -30*math.cos(theta2) + cand_x1
+			cand_y2 = -30*math.sin(theta2) + cand_y1
+		else:
+			cand_x2 = 30*math.cos(theta2) + cand_x1
+			cand_y2 = 30*math.sin(theta2) + cand_y1
+		
 		intersect_min = max(min(ref_x1,ref_x2),min(cand_x1,cand_x2))
 		intersect_max = min(max(ref_x1,ref_x2),max(cand_x1,cand_x2))
 
